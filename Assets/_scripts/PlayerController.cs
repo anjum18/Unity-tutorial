@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     public Text countText;
+    public Text winText;
 
     private Rigidbody rb;
     private int count;
@@ -33,9 +34,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Pick Up"))
         {
-            Destroy(this.gameObject);
+            Destroy(other.gameObject);
             count++;
             setCountText();
+            if (count >= 4)
+            {
+                winText.text = "You Win!";
+            }
 
 
         }
