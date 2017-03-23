@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public float speed;
+    public float jumpSpeed;
     public Text countText;
     public Text winText;
 
@@ -28,6 +29,10 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce(movement * speed);
+
+        if (Input.GetKeyDown("space")) {
+            jump();
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -50,4 +55,14 @@ public class PlayerController : MonoBehaviour
     {
         countText.text = "Count: " + count.ToString();
     }
+
+    private void jump()
+    {
+
+        Debug.Log("test");
+        Vector3 movement = new Vector3(0.0f, 10.5f, 0.0f);
+
+        rb.AddForce(movement * jumpSpeed);
+    }
+
 }
