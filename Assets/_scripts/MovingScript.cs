@@ -2,26 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingScript : MonoBehaviour {
+public class MovingScript : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-        
-        transform.Translate(new Vector3(5, 0, 5) * Time.deltaTime);
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
+        transform.position = transform.position + new Vector3(0, 0, 0.5f);
+
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("rersdf");
-        if (other.gameObject.CompareTag("Wall"))
+        
+        if (other.gameObject.CompareTag("Walls"))
         {
-            
+            Debug.Log("rersdf");
             gameObject.SetActive(false);
         }
     }
